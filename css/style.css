@@ -30,12 +30,7 @@ ul {
     list-style: none;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
-
-/* ====== HEADER / NAV ====== */
+/* ====== HEADER / NAV (Flexbox) ====== */
 header {
     background-color: var(--azul);
     color: var(--branco);
@@ -49,6 +44,9 @@ header {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -62,6 +60,7 @@ header nav a {
     font-weight: bold;
     padding: 6px 10px;
     border-radius: 6px;
+    transition: background-color 0.2s ease;
 }
 
 header nav a:hover {
@@ -84,6 +83,7 @@ section {
     background-color: var(--branco);
     padding: 24px;
     border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -92,7 +92,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--azul);
     margin-bottom: 14px;
     border-left: 5px solid var(--vermelho);
@@ -109,10 +109,13 @@ p {
     margin-bottom: 10px;
 }
 
-/* ====== HERO (Home) ====== */
+/* ====== HERO (Home) — layout em Flexbox ====== */
 .hero {
     background-color: var(--preto);
     color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
@@ -120,25 +123,30 @@ p {
     color: var(--branco);
 }
 
-.hero .subtitulo {
-    color: var(--vermelho);
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-/* espaço reservado para imagem na Home */
-.imagem-hero {
-    margin: 20px auto;
-    max-width: 500px;
-    aspect-ratio: 16 / 9;
-    background-color: #1a1a1a;
-    border: 2px dashed var(--vermelho);
-    border-radius: 8px;
+/* selo/ícone decorativo, feito só com CSS, sem imagem externa */
+.hero-icone {
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--branco);
-    font-size: 0.9rem;
+    font-size: 1.8rem;
+    background: radial-gradient(circle, var(--vermelho) 0%, #7a0f0a 100%);
+    border-radius: 50%;
+    margin-bottom: 14px;
+    box-shadow: 0 0 0 4px rgba(226, 35, 26, 0.2);
+}
+
+.hero .subtitulo {
+    color: var(--vermelho);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.hero-texto {
+    max-width: 600px;
+    font-size: 1rem;
 }
 
 .botao {
@@ -149,13 +157,14 @@ p {
     border-radius: 6px;
     font-weight: bold;
     margin-top: 10px;
+    transition: background-color 0.2s ease;
 }
 
 .botao:hover {
     background-color: #a3151a;
 }
 
-/* ====== CARDS (Grid) ====== */
+/* ====== CARDS ====== */
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -170,22 +179,105 @@ p {
     border-radius: 6px;
 }
 
-.card-vilao {
-    border-left: 4px solid var(--vermelho);
+/* ====== PERSONAGENS ====== */
+.secao-personagens, aside {
+    width: 85%;
+    margin: 0 auto;
 }
 
-/* ====== ASIDE ====== */
-aside {
+.lista-personagens {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.personagem {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     background-color: var(--cinza-claro);
-    border-left: 4px solid var(--vermelho);
+    padding: 14px 16px;
+    border-left: 4px solid var(--azul);
+    border-radius: 6px;
+}
+
+.avatar {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--azul);
+    color: var(--branco);
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.personagem-texto h3 {
+    margin-bottom: 2px;
+}
+
+.personagem-texto p {
+    margin-bottom: 0;
+}
+
+aside {
+    background-color: var(--branco);
+    border: 1px solid #e5e5e5;
+    border-left: 5px solid var(--vermelho);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.aside-selo {
+    display: inline-block;
+    background-color: var(--azul);
+    color: var(--branco);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.aside-intro {
+    color: #555555;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
 }
 
 aside ul li {
-    margin-bottom: 8px;
-    padding-left: 10px;
+    position: relative;
+    padding: 10px 0 10px 24px;
+    border-bottom: 1px solid #ececec;
 }
 
-/* ====== FORMULÁRIO ====== */
+aside ul li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+aside ul li::before {
+    content: "🕸️";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 0.85rem;
+}
+
+/* ====== FORMULÁRIO (Contato) ====== */
+.intro-contato,
+.secao-formulario {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
 .campo {
     display: flex;
     flex-direction: column;
@@ -212,16 +304,6 @@ aside ul li {
     border-color: var(--vermelho);
 }
 
-.intro-contato {
-    margin: auto auto;
-    margin-bottom: 20px;
-    max-width: 600px;
-}
-
-.secao-formulario {
-    max-width: 600px;
-    margin: 0 auto;
-}
 .secao-formulario button {
     background-color: var(--vermelho);
     color: var(--branco);
@@ -230,6 +312,7 @@ aside ul li {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .secao-formulario button:hover {
@@ -248,7 +331,7 @@ footer p {
     font-size: 0.85rem;
 }
 
-/* ====== RESPONSIVIDADE ====== */
+/* ====== RESPONSIVIDADE BASICA ====== */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -257,5 +340,10 @@ footer p {
 
     .cards {
         grid-template-columns: 1fr;
+    }
+
+    .personagem {
+        flex-direction: column;
+        text-align: center;
     }
 }

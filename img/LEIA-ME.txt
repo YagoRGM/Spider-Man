@@ -1,3 +1,0 @@
-Pasta reservada para imagens do site (ex: logo.png, hero-bg.jpg, teia.png).
-O layout funciona normalmente sem imagens, pois nenhuma página depende de
-arquivos externos para ser exibida corretamente.
