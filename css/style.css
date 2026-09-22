@@ -1,349 +1,433 @@
-/* ====== VARIÁVEIS DE COR ====== */
+/* ==========================================================
+   ESTILO CUSTOMIZADO — sobre o Bootstrap 5
+   Paleta: vermelho (herói), azul (Nova York à noite), preto
+   Tipografia: Anton (título hero) + Poppins (headings) + Inter (corpo)
+   ========================================================== */
+
 :root {
     --vermelho: #e2231a;
+    --vermelho-escuro: #a3151a;
     --azul: #1b2a6b;
-    --preto: #101010;
+    --azul-escuro: #0a1230;
+    --preto: #0a0a0a;
     --branco: #ffffff;
-    --cinza-claro: #f2f2f2;
-}
+    --cinza-claro: #f4f4f7;
 
-/* ====== RESET BÁSICO ====== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    /* escala de espaçamento — usada pra garantir respiro entre blocos */
+    --sp-1: 0.5rem;
+    --sp-2: 1rem;
+    --sp-3: 1.75rem;
+    --sp-4: 2.5rem;
+    --sp-5: 4rem;
+    --sp-6: 5.5rem;
+
+    --bs-primary: var(--azul);
+    --bs-primary-rgb: 27, 42, 107;
+    --bs-danger: var(--vermelho);
+    --bs-danger-rgb: 226, 35, 26;
+    --bs-body-font-family: 'Inter', system-ui, sans-serif;
+    --bs-border-radius: 0.6rem;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
+    background-color: var(--azul-escuro);
     color: var(--preto);
-    background-color: var(--azul);
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-/* ====== HEADER / NAV (Flexbox) ====== */
-header {
-    background-color: var(--azul);
-    color: var(--branco);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 16px 32px;
-    border-bottom: 4px solid var(--vermelho);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.4rem;
-    font-weight: bold;
-}
-
-header nav ul {
-    display: flex;
-    gap: 20px;
-}
-
-header nav a {
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-header nav a:hover {
-    background-color: var(--vermelho);
-}
-
-header nav a.ativo {
-    background-color: var(--vermelho);
-}
-
-/* ====== MAIN ====== */
-main {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 32px 20px;
-}
-
-section {
-    margin-bottom: 40px;
-    background-color: var(--branco);
-    padding: 24px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    font-size: 2.2rem;
-    color: var(--azul);
+h2, h3, h4, .accordion-button {
+    font-family: 'Poppins', sans-serif;
 }
 
 h2 {
-    font-size: 1.6rem;
     color: var(--azul);
-    margin-bottom: 14px;
+    font-weight: 600;
     border-left: 5px solid var(--vermelho);
-    padding-left: 10px;
+    padding-left: 12px;
 }
 
-h3 {
-    font-size: 1.1rem;
-    color: var(--vermelho);
-    margin-bottom: 6px;
-}
-
-p {
-    margin-bottom: 10px;
-}
-
-/* ====== HERO (Home) — layout em Flexbox ====== */
-.hero {
+/* ===== NAVBAR ===== */
+.navbar {
     background-color: var(--preto);
-    color: var(--branco);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    border-bottom: 4px solid var(--vermelho);
 }
 
-.hero h1 {
-    color: var(--branco);
-}
-
-/* selo/ícone decorativo, feito só com CSS, sem imagem externa */
-.hero-icone {
-    width: 70px;
-    height: 70px;
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    background: radial-gradient(circle, var(--vermelho) 0%, #7a0f0a 100%);
-    border-radius: 50%;
-    margin-bottom: 14px;
-    box-shadow: 0 0 0 4px rgba(226, 35, 26, 0.2);
+    gap: 8px;
 }
 
-.hero .subtitulo {
+.navbar-brand .spider-icon {
+    width: 26px;
+    height: 26px;
     color: var(--vermelho);
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
 }
 
-.hero-texto {
-    max-width: 600px;
-    font-size: 1rem;
+.navbar-nav {
+    gap: 6px;
 }
 
-.botao {
-    display: inline-block;
-    background-color: var(--vermelho);
-    color: var(--branco);
-    padding: 10px 24px;
+.navbar-nav .nav-item + .nav-item {
+    margin-left: 2px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        gap: 4px;
+        padding: var(--sp-1) 0;
+    }
+
+    .navbar-nav .nav-item + .nav-item {
+        margin-left: 0;
+        margin-top: 2px;
+    }
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
     border-radius: 6px;
-    font-weight: bold;
-    margin-top: 10px;
+    padding: 6px 14px !important;
     transition: background-color 0.2s ease;
 }
 
-.botao:hover {
-    background-color: #a3151a;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: var(--vermelho);
+    color: var(--branco) !important;
 }
 
-/* ====== CARDS ====== */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 10px;
+/* ===== LAYOUT GERAL / ESPAÇAMENTO ENTRE SEÇÕES ===== */
+main .container {
+    padding-top: var(--sp-5);
+    padding-bottom: var(--sp-2);
 }
 
-.card {
-    background-color: var(--cinza-claro);
-    padding: 16px;
-    border-left: 4px solid var(--azul);
-    border-radius: 6px;
+.secao {
+    background-color: var(--branco);
+    border-radius: var(--bs-border-radius);
+    padding: var(--sp-4);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
 }
 
-/* ====== PERSONAGENS ====== */
-.secao-personagens, aside {
-    width: 85%;
-    margin: 0 auto;
+.secao + .secao,
+.secao + .row,
+.row + .secao {
+    margin-top: var(--sp-5);
 }
 
-.lista-personagens {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 10px;
+.secao-card {
+    border: none;
+    border-radius: var(--bs-border-radius);
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
 }
 
-.personagem {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: var(--cinza-claro);
-    padding: 14px 16px;
-    border-left: 4px solid var(--azul);
-    border-radius: 6px;
+/* ===== HERO ===== */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 30% 20%, var(--azul) 0%, var(--preto) 78%);
+    padding: var(--sp-6) 0 var(--sp-0);
+    color: var(--branco);
+    text-align: center;
 }
 
-.avatar {
-    flex-shrink: 0;
-    width: 42px;
-    height: 42px;
+.hero-bg-decor {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 480px;
+    max-width: 60vw;
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.hero-icon-wrap {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto var(--sp-2);
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--azul);
-    color: var(--branco);
-    font-weight: bold;
+    background: radial-gradient(circle, var(--vermelho) 0%, var(--vermelho-escuro) 100%);
     border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba(226, 35, 26, 0.18);
 }
 
-.personagem-texto h3 {
-    margin-bottom: 2px;
+.hero-icon-wrap svg {
+    width: 38px;
+    height: 38px;
 }
 
-.personagem-texto p {
+.hero-icon-wrap .hero-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
+
+.hero-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    margin-bottom: var(--sp-1);
+}
+
+.hero-section .subtitulo {
+    color: var(--vermelho);
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+}
+
+.hero-lead {
+    max-width: 560px;
+    margin: var(--sp-2) auto 0;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-actions {
+    margin-top: var(--sp-3);
+}
+
+/* faixa de skyline entre o hero e o resto da página */
+.skyline-divider {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-top: var(--sp-4);
+}
+
+/* ===== CARROSSEL ===== */
+.carousel-heroico {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-heroico .carousel-slide {
+    border-radius: var(--bs-border-radius);
+    padding: var(--sp-4) var(--sp-5) var(--sp-5);
+    color: var(--branco);
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-heroico .carousel-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 60%);
+}
+
+.carousel-heroico .slide-tag {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--sp-1);
+}
+
+.carousel-heroico h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 10px;
+    color: var(--branco);
+}
+
+.carousel-heroico p {
+    max-width: 480px;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slide-1 { background: linear-gradient(135deg, var(--vermelho-escuro), var(--vermelho)); }
+.slide-2 { background: linear-gradient(135deg, var(--azul-escuro), var(--azul)); }
+.slide-3 { background: linear-gradient(135deg, #101010, #2b2b2b); }
+
+.carousel-heroico .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-heroico .carousel-indicators .active {
+    background-color: var(--branco);
+}
+
+.carousel-heroico .carousel-control-prev,
+.carousel-heroico .carousel-control-next {
+    width: 6%;
+}
+
+/* ===== CARDS DE PODER ===== */
+.card-poder {
+    border: none;
+    border-left: 4px solid var(--azul);
+    background-color: var(--cinza-claro);
+    transition: transform 0.15s ease;
+}
+
+.card-poder:hover {
+    transform: translateY(-4px);
+}
+
+/* ===== ACCORDION ===== */
+.accordion-button:not(.collapsed) {
+    background-color: var(--vermelho);
+    color: var(--branco);
+}
+
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(226, 35, 26, 0.35);
+}
+
+/* ===== TIMELINE DE ORIGEM (sobre.html) ===== */
+.timeline {
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 6px;
+    bottom: 6px;
+    width: 3px;
+    background: linear-gradient(var(--vermelho), var(--azul));
+    border-radius: 3px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: var(--sp-3);
+}
+
+.timeline-item:last-child {
     margin-bottom: 0;
 }
 
-aside {
-    background-color: var(--branco);
-    border: 1px solid #e5e5e5;
-    border-left: 5px solid var(--vermelho);
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-}
-
-.aside-selo {
-    display: inline-block;
-    background-color: var(--azul);
-    color: var(--branco);
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-}
-
-.aside-intro {
-    color: #555555;
-    font-size: 0.95rem;
-    margin-bottom: 14px;
-}
-
-aside ul li {
-    position: relative;
-    padding: 10px 0 10px 24px;
-    border-bottom: 1px solid #ececec;
-}
-
-aside ul li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-aside ul li::before {
-    content: "🕸️";
+.timeline-item::before {
+    content: "";
     position: absolute;
-    left: 0;
-    top: 8px;
-    font-size: 0.85rem;
+    left: -2.5rem;
+    top: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--branco);
+    border: 4px solid var(--vermelho);
+    border-radius: 50%;
 }
 
-/* ====== FORMULÁRIO (Contato) ====== */
-.intro-contato,
-.secao-formulario {
-    max-width: 600px;
-    margin: 0 auto 40px auto;
+.timeline-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
 }
 
-.campo {
+.timeline-item p {
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* ===== LIST GROUP / AVATAR (personagens) ===== */
+.avatar-ring {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--azul), var(--vermelho));
+    color: var(--branco);
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 50%;
 }
 
-.campo label {
-    font-weight: bold;
-    color: var(--azul);
+/* ===== FRASE DE DESTAQUE (sobre.html) ===== */
+.frase-destaque {
+    border-left: 5px solid var(--vermelho);
 }
 
-.campo input,
-.campo textarea {
-    padding: 8px 10px;
-    border: 2px solid #cccccc;
-    border-radius: 6px;
-    font-family: inherit;
+/* ===== CONTATO ===== */
+.info-contato-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
 }
 
-.campo input:focus,
-.campo textarea:focus {
-    outline: none;
+.info-contato-item svg {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--vermelho);
+    margin-top: 3px;
+}
+
+.info-contato-item + .info-contato-item {
+    margin-top: var(--sp-3);
+}
+
+.card-info-contato {
+    background: linear-gradient(160deg, var(--azul), var(--azul-escuro));
+    color: var(--branco);
+}
+
+.card-info-contato h2 {
+    color: var(--branco);
+    border-left-color: var(--branco);
+}
+
+.card-info-contato .text-muted {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ===== BOTÕES ===== */
+.btn-danger {
+    background-color: var(--vermelho);
     border-color: var(--vermelho);
 }
 
-.secao-formulario button {
-    background-color: var(--vermelho);
-    color: var(--branco);
-    border: none;
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+.btn-danger:hover {
+    background-color: var(--vermelho-escuro);
+    border-color: var(--vermelho-escuro);
 }
 
-.secao-formulario button:hover {
-    background-color: #a3151a;
-}
-
-/* ====== FOOTER ====== */
+/* ===== FOOTER ===== */
 footer {
     background-color: var(--preto);
-    color: var(--branco);
-    text-align: center;
-    padding: 16px;
+    margin-top: var(--sp-6);
 }
 
-footer p {
-    font-size: 0.85rem;
-}
-
-/* ====== RESPONSIVIDADE BASICA ====== */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 576px) {
+    .hero-section {
+        padding: var(--sp-5) 0 var(--sp-4);
     }
 
-    .cards {
-        grid-template-columns: 1fr;
+    .carousel-heroico .carousel-slide {
+        padding: var(--sp-3) var(--sp-2) var(--sp-4);
     }
 
-    .personagem {
-        flex-direction: column;
-        text-align: center;
+    .timeline {
+        padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+        left: -2rem;
     }
 }

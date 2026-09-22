@@ -4,142 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spider-Man | Sobre</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="img/aranha.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <span class="logo-icone">🕸️</span>
-            <span class="logo-texto">Spider-Man</span>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><svg class="spider-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <g fill="currentColor">
+                        <ellipse cx="32" cy="38" rx="10" ry="13"/>
+                        <circle cx="32" cy="21" r="7"/>
+                    </g>
+                    <g stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none">
+                        <path d="M24 30 8 18"/>
+                        <path d="M22 36 4 32"/>
+                        <path d="M22 42 6 46"/>
+                        <path d="M24 48 10 58"/>
+                        <path d="M40 30 56 18"/>
+                        <path d="M42 36 60 32"/>
+                        <path d="M42 42 58 46"/>
+                        <path d="M40 48 54 58"/>
+                    </g>
+                </svg> Spider-Man</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="sobre.html">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                </ul>
+            </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="sobre.html" class="ativo">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
 
     <main>
+        <div class="container">
 
-        <!-- Introdução -->
-        <section class="intro-sobre">
-            <h1>Sobre o Homem-Aranha</h1>
-            <p>
-                Peter Parker é um personagem criado por Stan Lee e Steve Ditko,
-                surgindo pela primeira vez nos quadrinhos em 1962. Desde então,
-                tornou-se um dos super-heróis mais populares do mundo, conhecido
-                por unir humor, drama adolescente e ação em suas histórias.
-            </p>
-        </section>
+            <!-- ===== BREADCRUMB (recurso 1) ===== -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sobre</li>
+                </ol>
+            </nav>
 
-        <!-- Origem -->
-        <section class="secao-origem">
-            <article>
+            <section class="secao">
+                <h1 class="h2 mb-3" style="border:none; padding-left:0;">Sobre o Homem-Aranha</h1>
+                <p class="mb-0">
+                    Peter Parker é um personagem criado por Stan Lee e Steve Ditko,
+                    surgindo pela primeira vez nos quadrinhos em 1962. Desde então,
+                    tornou-se um dos super-heróis mais populares do mundo, conhecido
+                    por unir humor, drama adolescente e ação em suas histórias.
+                </p>
+            </section>
+
+            <!-- ===== TIMELINE DE ORIGEM (recurso 2) ===== -->
+            <section class="secao">
                 <h2>A origem de Peter Parker</h2>
-                <p>
-                    Peter Parker era um estudante aplicado e um tanto tímido,
-                    até participar de uma demonstração científica onde foi
-                    picado por uma aranha geneticamente modificada.
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <h3>Um estudante como outro qualquer</h3>
+                        <p>Peter Parker era um estudante aplicado e um tanto tímido, sem nada de extraordinário à vista.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>A picada da aranha</h3>
+                        <p>Durante uma demonstração científica, foi picado por uma aranha geneticamente modificada.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Novas habilidades</h3>
+                        <p>A picada transferiu para Peter força, agilidade e a capacidade de grudar em superfícies.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>O erro que custou caro</h3>
+                        <p>No início, Peter usou seus poderes de forma egoísta — até um episódio marcante envolvendo seu tio.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Nasce o Homem-Aranha</h3>
+                        <p>Peter aprendeu que grandes poderes trazem grandes responsabilidades e decidiu proteger Nova York.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== BADGE + destaque (recurso 3) ===== -->
+            <section class="secao frase-destaque">
+                <span class="badge text-bg-primary mb-2">Frase marcante</span>
+                <h2 class="h3" style="border:none; padding-left:0;">Grandes poderes, grandes responsabilidades</h2>
+                <p class="text-muted mb-0">
+                    Essa frase resume o principal valor moral do Homem-Aranha e guia
+                    suas decisões como herói até hoje.
                 </p>
-                <p>
-                    A picada transferiu para Peter habilidades semelhantes às
-                    de uma aranha, como força, agilidade e a capacidade de
-                    grudar em superfícies.
-                </p>
-                <p>
-                    No início, Peter usou seus poderes de forma egoísta, mas
-                    após um episódio marcante envolvendo seu tio, aprendeu que
-                    "grandes poderes trazem grandes responsabilidades" e passou
-                    a se tornar o Homem-Aranha.
-                </p>
-            </article>
-        </section>
+            </section>
 
-        <!-- Frase marcante -->
-        <aside aria-label="Frase marcante do personagem">
-            <span class="aside-selo">Frase marcante</span>
-            <h2>Grandes poderes, grandes responsabilidades</h2>
-            <p class="aside-intro">
-                Essa frase resume o principal valor moral do Homem-Aranha e guia
-                suas decisões como herói até hoje.
-            </p>
-        </aside>
+            <!-- ===== CARDS - poderes detalhados (recurso 4) ===== -->
+            <section class="secao">
+                <h2>Poderes</h2>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4 mt-1">
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Superforça</h3>
+                                <p class="card-text">Capacidade de erguer objetos e enfrentar oponentes muito mais fortes que um humano comum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Agilidade</h3>
+                                <p class="card-text">Movimentos rápidos, saltos e acrobacias realizados com grande precisão.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Reflexos</h3>
+                                <p class="card-text">Reações extremamente rápidas diante de situações de perigo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Sentido-Aranha</h3>
+                                <p class="card-text">Percepção que alerta sobre ameaças antes que elas aconteçam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Escalar paredes</h3>
+                                <p class="card-text">Capacidade de aderir e se locomover por superfícies verticais.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 card-poder">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Lançamento de teias</h3>
+                                <p class="card-text">Uso de lançadores próprios para criar teias e se deslocar entre os prédios.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Poderes detalhados -->
-        <section class="secao-poderes-detalhe">
-            <h2>Poderes</h2>
-            <div class="cards">
-                <article class="card">
-                    <h3>Superforça</h3>
-                    <p>Capacidade de erguer objetos e enfrentar oponentes muito mais fortes que um humano comum.</p>
-                </article>
-                <article class="card">
-                    <h3>Agilidade</h3>
-                    <p>Movimentos rápidos, saltos e acrobacias realizados com grande precisão.</p>
-                </article>
-                <article class="card">
-                    <h3>Reflexos</h3>
-                    <p>Reações extremamente rápidas diante de situações de perigo.</p>
-                </article>
-                <article class="card">
-                    <h3>Sentido-Aranha</h3>
-                    <p>Percepção que alerta sobre ameaças antes que elas aconteçam.</p>
-                </article>
-                <article class="card">
-                    <h3>Escalar paredes</h3>
-                    <p>Capacidade de aderir e se locomover por superfícies verticais.</p>
-                </article>
-                <article class="card">
-                    <h3>Lançamento de teias</h3>
-                    <p>Uso de lançadores próprios para criar teias e se deslocar entre os prédios.</p>
-                </article>
-            </div>
-        </section>
+            <!-- ===== LIST GROUP - personagens (recurso 5) + MODAL (recurso 6) ===== -->
+            <section class="secao">
+                <h2>Principais Personagens</h2>
+                <div class="list-group mt-3">
 
-        <!-- Principais personagens -->
-        <section class="secao-personagens">
-            <h2>Principais Personagens</h2>
-            <div class="lista-personagens">
-                <article class="personagem">
-                    <span class="avatar" aria-hidden="true">P</span>
-                    <div class="personagem-texto">
-                        <h3>Peter Parker</h3>
-                        <p>O Homem-Aranha original e protagonista das histórias.</p>
-                    </div>
-                </article>
-                <article class="personagem">
-                    <span class="avatar" aria-hidden="true">M</span>
-                    <div class="personagem-texto">
-                        <h3>Mary Jane Watson</h3>
-                        <p>Uma das pessoas mais importantes na vida de Peter.</p>
-                    </div>
-                </article>
-                <article class="personagem">
-                    <span class="avatar" aria-hidden="true">T</span>
-                    <div class="personagem-texto">
-                        <h3>Tia May</h3>
-                        <p>Figura importante e fonte de apoio na vida de Peter Parker.</p>
-                    </div>
-                </article>
-                <article class="personagem">
-                    <span class="avatar" aria-hidden="true">M</span>
-                    <div class="personagem-texto">
-                        <h3>Miles Morales</h3>
-                        <p>Outro personagem que também assume o manto do Homem-Aranha.</p>
-                    </div>
-                </article>
-            </div>
-        </section>
+                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-bs-toggle="modal" data-bs-target="#personagemModal" data-nome="Peter Parker" data-tag="Protagonista" data-desc="O Homem-Aranha original e protagonista das histórias.">
+                        <span class="avatar-ring" aria-hidden="true">P</span>
+                        <span>
+                            <strong class="d-block">Peter Parker</strong>
+                            <span class="text-muted small">O Homem-Aranha original e protagonista das histórias.</span>
+                        </span>
+                    </button>
 
+                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-bs-toggle="modal" data-bs-target="#personagemModal" data-nome="Mary Jane Watson" data-tag="Interesse amoroso" data-desc="Uma das pessoas mais importantes na vida de Peter.">
+                        <span class="avatar-ring" aria-hidden="true">M</span>
+                        <span>
+                            <strong class="d-block">Mary Jane Watson</strong>
+                            <span class="text-muted small">Uma das pessoas mais importantes na vida de Peter.</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-bs-toggle="modal" data-bs-target="#personagemModal" data-nome="Tia May" data-tag="Família" data-desc="Figura importante e fonte de apoio na vida de Peter Parker.">
+                        <span class="avatar-ring" aria-hidden="true">T</span>
+                        <span>
+                            <strong class="d-block">Tia May</strong>
+                            <span class="text-muted small">Figura importante e fonte de apoio na vida de Peter Parker.</span>
+                        </span>
+                    </button>
+
+                    <button type="button" class="list-group-item list-group-item-action d-flex align-items-center gap-3" data-bs-toggle="modal" data-bs-target="#personagemModal" data-nome="Miles Morales" data-tag="Aliado" data-desc="Outro personagem que também assume o manto do Homem-Aranha.">
+                        <span class="avatar-ring" aria-hidden="true">M</span>
+                        <span>
+                            <strong class="d-block">Miles Morales</strong>
+                            <span class="text-muted small">Outro personagem que também assume o manto do Homem-Aranha.</span>
+                        </span>
+                    </button>
+
+                </div>
+            </section>
+
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Spider-Man Fan Page</p>
-        <p>Projeto acadêmico — Desenvolvimento Web Semântico - Yago Moraes</p>
+    <div class="modal fade" id="personagemModal" tabindex="-1" aria-labelledby="personagemModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5 mb-0 border-0 p-0" id="personagemModalLabel">Personagem</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="badge text-bg-secondary mb-2" id="personagemModalTag"></span>
+                    <p class="mb-0" id="personagemModalDesc"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center text-white py-4">
+        <p class="mb-1">&copy; 2026 Spider-Man Fan Page</p>
+        <p class="mb-0 small">Projeto acadêmico — Desenvolvimento Web Semântico - Yago Moraes</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
