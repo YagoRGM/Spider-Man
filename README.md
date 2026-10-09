@@ -17,7 +17,7 @@ Nenhuma imagem de terceiros. Tudo que é ilustração (teia, skyline, ícone da 
 Precisa de Python 3.10 ou mais novo.
 
 ```bash
-git clone <url-do-repositorio>
+git clone "https://github.com/YagoRGM/Spider-Man"
 cd spiderman-flask
 
 python -m venv venv
