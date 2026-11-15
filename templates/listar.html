@@ -1,0 +1,85 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Mensagens{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <section class="secao">
+        <h1 class="h2 mb-3" style="border:none; padding-left:0;">
+            Mensagens recebidas
+        </h1>
+        <p class="mb-0">
+            Confira os comentários enviados pelo formulário de contato.
+        </p>
+    </section>
+
+    <section class="lista-mensagens">
+
+        <div class="lista-mensagens-header">
+            <div>
+                <span class="contato-etiqueta">ÁREA DE REGISTROS</span>
+                <h2 class="mb-1">Caixa de mensagens</h2>
+                <p class="mb-0">Mensagens armazenadas no banco de dados.</p>
+            </div>
+
+            <div class="lista-contador">
+                <span class="lista-contador-numero">{{ contatos|length }}</span>
+                <span class="lista-contador-texto">
+                    {% if contatos|length == 1 %}
+                        mensagem
+                    {% else %}
+                        mensagens
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+
+        <div class="lista-mensagens-conteudo">
+
+            {% if contatos %}
+                <div class="table-responsive">
+                    <table class="table tabela-contatos align-middle mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Assunto</th>
+                                <th scope="col">Mensagem</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for contato in contatos %}
+                            <tr>
+                                <td class="contato-id">{{ contato.id }}</td>
+                                <td class="fw-semibold">{{ contato.nome }}</td>
+                                <td>{{ contato.email }}</td>
+                                <td>{{ contato.assunto }}</td>
+                                <td class="contato-mensagem">{{ contato.mensagem }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="lista-vazia">
+                    <div class="lista-vazia-icone">✉</div>
+                    <h3>Nenhuma mensagem por aqui</h3>
+                    <p class="text-muted mb-3">
+                        Quando alguém enviar uma mensagem pelo formulário,
+                        ela aparecerá nesta página.
+                    </p>
+                    <a href="{{ url_for('contato') }}" class="btn btn-danger">
+                        Ir para o contato
+                    </a>
+                </div>
+            {% endif %}
+
+        </div>
+    </section>
+
+</div>
+{% endblock %}
